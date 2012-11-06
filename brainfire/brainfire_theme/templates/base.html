@@ -1,0 +1,145 @@
+{% load pages_tags mezzanine_tags i18n %}
+
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+  <meta name="description" content="{% block meta_description %}{% endblock %}">
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{% block full_meta_title %}{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}{% endblock %}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}img/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}img/favicon.ico">
+
+  {% ifinstalled mezzanine.blog %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url blog_post_feed "rss" %}">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url blog_post_feed "atom" %}">
+  {% endifinstalled %}
+  
+	<!-- Included CSS Files -->
+	{% block base_styles %}
+  {% compress css %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/app.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Michroma">
+  {% endcompress %}
+  {% endblock %}
+  {% block styles %}{% endblock %}
+
+	<script src="{{ STATIC_URL }}jjavascripts/foundation/modernizr.foundation.js"></script>
+	<script type="text/javascript">
+    var MEDIA_URL = "{{ MEDIA_URL }}";
+    var STATIC_URL = "{{ STATIC_URL }}";
+  </script>
+  
+  {% block extra_head %}{% endblock %}
+</head>
+    <body>
+        {% block body %}
+          <header id="header">
+            {% block header %}
+            <div class="row">
+              <div class="three columns">
+                <h1><img src="{{ STATIC_URL }}images/logo.png" alt="{{ settings.SITE_TITLE }} - {{ settings.SITE_TAGLINE }}"/></h1>
+              </div>
+              <div class="nine columns">
+                <ul class="nav-bar right">
+                {% page_menu "pages/menus/dropdown.html" %}
+                </ul>
+              </div>
+            </div>
+            {% endblock header %}
+          </header>
+
+          <div class="row">
+            {% nevercache %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" data-alert="alert">
+            <a class="close" href="#" onclick="$(this).parent().fadeOut('fast'); return false;">×</a>{{ message }}
+            </div>
+            {% endfor %}
+            {% endnevercache %}
+          </div>    
+
+          {% block content %}{% endblock %}
+
+          <footer class="row">
+            {% block footer %}
+            <div class="twelve columns">
+              <hr />
+              <div class="row">
+                <div class="six columns">
+                  <p>{% trans "Copyright" %} © {% now "Y" %}. {% trans "All rights reserved." %}</p>
+                </div>
+                <div class="six columns">
+                  <ul class="link-list right">
+                    {% page_menu "pages/menus/dropdown.html" %}
+                  </ul>
+                </div>
+              </div>
+            </div> 
+            {% endblock footer %}
+          </footer>
+        {% endblock %}
+
+        {% block base_libs %}
+        {% compress js %}
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.cookie.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.event.move.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.event.swipe.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.accordion.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.alerts.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.buttons.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.clearing.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.forms.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.joyride.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.magellan.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.mediaQueryToggle.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.navigation.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.orbit.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.reveal.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.tabs.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.tooltips.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.topbar.js"></script>
+      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.placeholder.js"></script>
+        <script src="{{ STATIC_URL }}javascripts/foundation/app.js"></script>
+        {% endcompress %}
+        {% endblock %}
+        
+        {% if settings.DEBUG %}
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+        {% endif %}
+        
+        {% compress js %}
+        {% block scripts %}
+        <script src="{{ STATIC_URL }}javascripts/main.js"></script>
+        {% endblock %}
+        {% endcompress %}
+        
+        {% block editable %}
+        {% editable_loader %}
+        {% endblock %}
+
+        {% if settings.GOOGLE_ANALYTICS_ID %}
+        <script type="text/javascript">
+          var _gaq = [
+            ['_setAccount', '{{ settings.GOOGLE_ANALYTICS_ID }}'],
+            ['_setDomainName', '{{ settings.GOOGLE_ANALYTICS_DOMAIN }}'],
+            ['_trackPageview']
+          ];
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        {% endif %}
+    </body>
+</html>
