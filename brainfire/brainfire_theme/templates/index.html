@@ -8,46 +8,117 @@
 {% else %}{% trans "Home" %}{% endif %}
 {% endblock %}
 
+{% block styles %}
+  {% compress css %}
+  <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/index.css">
+  {% endcompress %}
+{% endblock %}
+
 {% block content %}
 	<!-- First Band (Image) -->
-  <div class="row">
+  <div id="slideshow" class="row">
     <div class="twelve columns">
       <img src="http://placehold.it/1000x400&text=[img]" />
-
-      <hr />
     </div>
   </div>
 
   <!-- Second Band (Image Left with Text) -->
-  <div class="row">
-    <div class="four columns">
-      <img src="http://placehold.it/400x300&text=[img]" />
-    </div>
-    <div class="eight columns">
-      <h4>This is a content section.</h4>
-      <div class="row">
-        <div class="six columns">
-          <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+  <section id="features">
+    <div class="row">
+      <div id="badges" class="row">
+        <div class="eight columns centered">
+          <div class="four columns"><img src="{{ STATIC_URL }}images/power-badge.png"></div>
+          <div class="four columns"><img src="{{ STATIC_URL }}images/battery-badge.png"></div>
+          <div class="four columns"><img src="{{ STATIC_URL }}images/einput-badge.png"></div>
         </div>
-        <div class="six columns">
-          <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+      </div>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="nine columns centered">
+          <h2>Power Up Your Experiences</h2>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="twelve columns centered">
+          <div class="four columns">
+            <h3>Web</h3>
+            <p></p>
+            <a href="">Click here to learn more</a>
+          </div>
+          <div class="four columns">
+            <h3>Mobile</h3>
+            <p></p>
+            <a href="">Click here to learn more</a>
+          </div>
+          <div class="four columns">
+            <h3>Workflow</h3>
+            <p></p>
+            <a href="">Click here to learn more</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Third Band (Image Right with Text) -->
-  <div class="row">
-    <div class="eight columns">
-      <h4>This is a content section.</h4>
-
-      <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-
-      <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
-
+  </section>
+  
+  
+  <section id="our-team">
+    <div class="divider-bar row"></div>
+    <div id="the-team" class="row">
+      <div class="twelve columns">
+        <div class="six columns">
+          <h2>The Team</h2>
+          <p></p>
+        </div>
+        <div class="six columns">
+          <div class="six columns">
+            <img src="{{ STATIC_URL }}images/primary-team-badge.png" />
+          </div>
+          <div class="six columns">
+            <img src="{{ STATIC_URL }}images/secondary-team-badge.png" />
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="four columns">
-      <img src="http://placehold.it/400x300&text=[img]" />
+    <div class="divider-bar"></div>
+  </section>
+  
+  <section id="recent-projects">
+    <div class="row">
+      <div class="twelve columns">
+        <h4>The Results</h4>
+        <div class="heading-divider"></div>
+        <p></p>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="twelve columns centered">
+        <div class="four columns"><img src="{{ STATIC_URL }}images/portofolio-badge.png"></div>
+        <div class="four columns"><img src="{{ STATIC_URL }}images/portofolio-badge.png"></div>
+        <div class="four columns"><img src="{{ STATIC_URL }}images/portofolio-badge.png"></div>
+      </div>
+    </div>
+  </section>
+    
+  <section id="more-info">
+    <hr />
+    <div class="row">
+      <div class="twelve columns centered">
+        <div class="four columns">
+          <h5>From The Blog</h5>
+        </div>
+        <div class="four columns">
+          <h5>About Us</h5>
+          
+        </div>
+        <div class="four columns">
+          <h5>Tweets</h5>
+        
+        </div>
+      </div>
+    </div>
+  </section>
+  
 {% endblock %}

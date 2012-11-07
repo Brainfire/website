@@ -27,11 +27,12 @@
   {% compress css %}
 	<link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/app.css">
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Michroma">
+	<link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/base.css">
   {% endcompress %}
   {% endblock %}
   {% block styles %}{% endblock %}
 
-	<script src="{{ STATIC_URL }}jjavascripts/foundation/modernizr.foundation.js"></script>
+	<script src="{{ STATIC_URL }}javascripts/foundation/modernizr.foundation.js"></script>
 	<script type="text/javascript">
     var MEDIA_URL = "{{ MEDIA_URL }}";
     var STATIC_URL = "{{ STATIC_URL }}";
@@ -43,15 +44,21 @@
         {% block body %}
           <header id="header">
             {% block header %}
+            <div class="header-bar"></div>
             <div class="row">
               <div class="three columns">
                 <h1><img src="{{ STATIC_URL }}images/logo.png" alt="{{ settings.SITE_TITLE }} - {{ settings.SITE_TAGLINE }}"/></h1>
               </div>
-              <div class="nine columns">
+              <nav class="nine columns">
                 <ul class="nav-bar right">
                 {% page_menu "pages/menus/dropdown.html" %}
                 </ul>
-              </div>
+              </nav>
+              <ul class="keywords link-list six columns right">
+                <li>{% trans "Web/Mobile Development" %}</li>
+                <li>{% trans "Ecommerce Design" %}</li>
+                <li>{% trans "Solution Experts" %}</li>
+              </ul>
             </div>
             {% endblock header %}
           </header>
@@ -67,23 +74,51 @@
           </div>    
 
           {% block content %}{% endblock %}
-
-          <footer class="row">
-            {% block footer %}
-            <div class="twelve columns">
-              <hr />
-              <div class="row">
-                <div class="six columns">
-                  <p>{% trans "Copyright" %} © {% now "Y" %}. {% trans "All rights reserved." %}</p>
-                </div>
-                <div class="six columns">
-                  <ul class="link-list right">
-                    {% page_menu "pages/menus/dropdown.html" %}
-                  </ul>
-                </div>
+          
+          <div class="row">
+            <div id="back-to-top">
+              <img src="{{ STATIC_URL }}images/back-to-top.png">
+              <p>{% trans "Back to top" %}</p>
+            </div>
+          </div>
+          <div class="divider-bar"></div>
+          <div id="quick-links">
+            <div class="row">
+              <div class="three columns">
+                <h6>{% trans "About Us" %}</h6>
               </div>
-            </div> 
-            {% endblock footer %}
+              <div class="three columns">
+                <h6>{% trans "Recent Posts" %}</h6>
+              </div>
+              <div class="three columns">
+                <h6>{% trans "Contact" %}</h6>
+              </div>
+              <div class="three columns">
+                <h6>{% trans "Social Love" %}</h6>
+                <dl id="social-love">
+                  <dd><a href="#"><img src="{{ STATIC_URL }}images/facebook-icon.png" /><span>{% trans "Facebook" %}<span></a></dd>
+                  <dd><a href="#"><img src="{{ STATIC_URL }}images/twitter-icon.png" /><span>{% trans "Twitter" %}<span></a></dd>
+                  <dd><a href="#"><img src="{{ STATIC_URL }}images/vimeo-icon.png" /><span>{% trans "Check out our Videos" %}<span></a></dd>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div class="row">
+              {% block footer %}
+              <div class="twelve columns">
+                <div class="row">
+                  <div class="twelve columns">
+                    <p class="left">&copy;{% now "Y" %} {% trans "Brainfire LLC" %}. {% trans "All rights reserved." %}</p>
+                    <ul class="left link-list">
+                      <li><a href="">{% trans "Terms and Conditions" %}</a></li>
+                      <li><a href="">{% trans "Privacy Policy" %}</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div> 
+              {% endblock footer %}
+            </div>
           </footer>
         {% endblock %}
 
