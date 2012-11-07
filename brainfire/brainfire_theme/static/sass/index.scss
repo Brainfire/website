@@ -1,0 +1,24 @@
+@import "foundation-overrides.scss";
+
+section {
+    margin-top: 40px;
+}
+
+div.divider-bar {
+    background: #e9eae9;
+    height: 5px;
+    width: 100%;
+}
+
+#our-team {
+    background-color: #3b3b3b;
+    color: $white;
+    
+    h2 {
+        color: $white;
+    }
+}
+
+#the-team {
+    padding: 20px 0;
+}

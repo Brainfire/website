@@ -1,0 +1,169 @@
+@import "foundation-overrides.scss";
+
+body {
+    background: url(../images/background.png) 0 0 repeat;
+}
+
+a {
+    text-decoration: underline;
+    color: $txtColor;
+    font-weight: bold;
+}
+
+a:hover {
+    color: $secondaryColor;
+}
+
+header {
+    height: 120px;
+    
+    div.header-bar {
+        background: #9f1f27;
+        height: 5px;
+        width: 100%;
+    }
+    
+    h1 {
+        margin-top: 45px;
+        margin-bottom: 0;
+        padding: 0;
+        
+        img {
+            width: 320px;
+        }
+    }
+    
+    $navBorder: 2px solid #CDCECD;
+    $navListPadding: 22px;
+    
+    ul.nav-bar {
+        margin-top: 0;
+        background: none;
+
+        > li {
+            padding: $navListPadding 15px 0;
+            border: none;
+            line-height: 24px;
+
+            > a,
+            > a:first-child {
+                color: $black;
+                font-weight: bold;
+                padding: 0;
+            }
+        }
+        
+        > li:hover {
+            padding-top: $navListPadding - 2;
+            background: none;
+            
+            a {
+                border-top: $navBorder
+            }
+        }
+        
+        > li.active {
+            box-shadow: 0px 5px 15px -2px $black;
+            
+            > a {
+                padding-bottom: 5px;
+                color: $white;
+                border-top: $navBorder
+            }
+        }
+
+        > li.active:hover {
+            padding-top: $navListPadding;
+        }
+        
+        > li:first-child,
+        > li:last-child {
+            border: none;
+        }
+    }
+    
+    ul.keywords {
+        margin-top: 8px;
+        margin-bottom: 0;
+        
+        li {
+            color: $mainColor;
+            font-size: 12px;
+        }
+    }
+}
+
+#back-to-top {
+    margin: 0 auto;
+    padding-top: 40px;
+    width: 100px;
+    text-align: center;
+    
+    p {
+        text-transform: uppercase;
+        font-size: 10px;
+        font-family: $headerFontFamily
+    }
+}
+
+#footer-bar {
+    background: #e9eae9;
+    height: 5px;
+    width: 100%;
+}
+
+#quick-links {
+    background-color: #3b3b3b;
+    color: $white;
+    padding: 15px 0 20px;
+    height: 255px;
+    
+    h6 {
+        color: $white;
+    }
+    
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+#social-love {
+    dd {
+        overflow: hidden;
+    }
+    
+    a > img {
+        float: left;
+    }
+    
+    a > span {
+        margin-left: 5px;
+        line-height: 48px;
+    }
+}
+
+footer {
+    background-color: #232323;
+    height: 55px;
+    padding: 15px 0;
+    
+    a {
+        color: #535353;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+    a:hover {
+        color: #535353;
+        font-size: 12px;
+        text-decoration: underline;
+    }
+    
+    p {
+        color: #535353;
+        font-weight: bold;
+        font-size: 12px;
+        margin-right: 20px;
+    }
+}

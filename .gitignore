@@ -38,6 +38,7 @@ nosetests.xml
 *.log
 *.pot
 local_settings.py
+*.db
 
 #OSX
 .DS_STORE
