@@ -2,6 +2,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic.simple import direct_to_template
+from django.views.decorators.cache import cache_page
 
 admin.autodiscover()
 
@@ -13,19 +15,16 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
+    url(r'^$', cache_page(60 * 15)(direct_to_template), {'template': 'index.html'}, name='home'),
+    url(r'^terms_and_conditions/$', cache_page(60 * 15)(direct_to_template), {'template': 'terms_and_conditions.html'}, name='terms_and_conditions'),
+    url(r'^privacy/$', cache_page(60 * 15)(direct_to_template), {'template': 'privacy.html'}, name='privacy'),
+    
     url(r'^admin/', include(admin.site.urls)),
 )
 
 # Root level static files 
 urls = [('^%s$' % f, 'redirect_to', {'url': settings.STATIC_URL + f}) for f in settings.ASSETS]
 urlpatterns += patterns('django.views.generic.simple', *urls)
-
-urlpatterns += patterns('django.views.generic.simple',
-    url(r'^$', 'direct_to_template', {'template': 'index.html'}, name='home'),
-    url(r'^terms_and_conditions/$', 'direct_to_template', {'template': 'terms_and_conditions.html'}, name='terms_and_conditions'),
-    url(r'^privacy/$', 'direct_to_template', {'template': 'privacy.html'}, name='privacy'),
-)
 
 if not settings.DEBUG:
     urlpatterns += patterns('',
