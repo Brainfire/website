@@ -42,3 +42,5 @@ local_settings.py
 
 #OSX
 .DS_STORE
+
+.env

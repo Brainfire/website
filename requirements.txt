@@ -2,4 +2,12 @@ django
 psycopg2
 dj-database-url
 gunicorn
+gevent
 django_compressor
+south
+pytz
+pylibmc
+django-pylibmc-sasl
+boto
+django-storages
+raven

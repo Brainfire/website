@@ -1,26 +1,18 @@
 import os
+import dj_database_url
 
 # Django settings for brainfire project.
 APPS_DIR = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 TOP_DIR = os.path.dirname(APPS_DIR)
 
-DEBUG = os.environ['DEBUG']
+DEBUG = os.getenv('DEBUG', False)
 TEMPLATE_DEBUG = True
 
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost/brainfire')}
 
-MANAGERS = ADMINS
-
-DATABASES = {
+CACHES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache'
     }
 }
 
@@ -83,8 +75,18 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+if os.getenv('ENABLE_AWS', None) == "True":
+# Setup S3 Static Files
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
+    AWS_ACCESS_KEY_ID = os.environ['AWS_KEY']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
+    AWS_STORAGE_BUCKET_NAME = os.environ['STATIC_BUCKET_NAME']
+    STATIC_URL = os.getenv('STATIC_URL', '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME)
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '8kjr86@v_#-=#+h*fneyf$*_ab1)jpd9#34#i7ew6+w@0er94&amp;'
+SECRET_KEY = os.getenv('SECRET_KEY', '8kjr86@v_#-=#+h*fneyf$*_ab1)jpd9#34#i7ew6+w@0er94&amp;')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -136,6 +138,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'compressor',
     'common',
+    'gunicorn',
+    'storages',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -177,3 +181,6 @@ SITE_TITLE = 'Brainfire'
 SITE_TAGLINE = 'Iginiting Technology'
 
 ENABLE_ZENDESK = os.getenv('ENABLE_ZENDESK', False)
+
+GOOGLE_ANALYTICS_ID = os.getenv('GOOGLE_ANALYTICS_ID', None)
+GOOGLE_ANALYTICS_DOMAIN = os.getenv('GOOGLE_ANALYTICS_DOMAIN', None)
