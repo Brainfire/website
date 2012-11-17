@@ -78,7 +78,7 @@ STATICFILES_FINDERS = (
 if os.getenv('ENABLE_AWS', None) == "True":
 # Setup S3 Static Files
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    STATICFILES_STORAGE = 'brainfire.common.storage.CachedS3BotoStorage'
+    STATICFILES_STORAGE = 'common.storage.CachedS3BotoStorage'
     AWS_ACCESS_KEY_ID = os.environ['AWS_KEY']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['STATIC_BUCKET_NAME']
