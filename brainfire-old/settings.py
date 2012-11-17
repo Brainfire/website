@@ -1,3 +1,4 @@
+import os
 
 ######################
 # MEZZANINE SETTINGS #
@@ -127,7 +128,7 @@ LANGUAGE_CODE = "en"
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
-DEBUG = False
+DEBUG = os.getenv("DEBUG", False)
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -166,6 +167,8 @@ STATICFILES_FINDERS = (
 #############
 # DATABASES #
 #############
+#import dj_database_url
+#DATABASES['default'] =  dj_database_url.config()
 
 DATABASES = {
     "default": {
@@ -342,20 +345,6 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 #     "DB_PASS": "", # Live database password
 #     "ADMIN_PASS": "", # Live admin user password
 # }
-
-
-##################
-# LOCAL SETTINGS #
-##################
-
-# Allow any settings to be defined in local_settings.py which should be
-# ignored in your version control system allowing for settings to be
-# defined per machine.
-try:
-    from local_settings import *
-except ImportError:
-    pass
-
 
 ####################
 # DYNAMIC SETTINGS #

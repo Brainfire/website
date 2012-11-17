@@ -1,8 +1,8 @@
-{% load pages_tags mezzanine_tags i18n %}
+{% load compress i18n common_tags %}
 
 <!DOCTYPE html>
 
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!-- paulirish.com/2008/conditional-css-vs-css-hacks-answer-neither/ -->
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
@@ -13,26 +13,21 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{% block full_meta_title %}{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}{% endblock %}</title>
+  <title>{% block full_meta_title %}{% block meta_title %}{% endblock %}{% if SITE_TITLE %} | {{ SITE_TITLE }}{% endif %}{% endblock %}</title>
   <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}img/favicon.ico">
   <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}img/favicon.ico">
-
-  {% ifinstalled mezzanine.blog %}
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url blog_post_feed "rss" %}">
-  <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url blog_post_feed "atom" %}">
-  {% endifinstalled %}
   
 	<!-- Included CSS Files -->
 	{% block base_styles %}
   {% compress css %}
-	<link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/app.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/app.css">
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Michroma">
-	<link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/base.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
   {% endcompress %}
   {% endblock %}
   {% block styles %}{% endblock %}
 
-	<script src="{{ STATIC_URL }}javascripts/foundation/modernizr.foundation.js"></script>
+	<script src="{{ STATIC_URL }}js/foundation/modernizr.foundation.js"></script>
 	<script type="text/javascript">
     var MEDIA_URL = "{{ MEDIA_URL }}";
     var STATIC_URL = "{{ STATIC_URL }}";
@@ -47,37 +42,37 @@
             <div class="header-bar"></div>
             <div class="row">
               <div class="three columns">
-                <h1><img src="{{ STATIC_URL }}images/logo.png" alt="{{ settings.SITE_TITLE }} - {{ settings.SITE_TAGLINE }}"/></h1>
+                <h1><img src="{{ STATIC_URL }}img/logo.png" alt="{{ settings.SITE_TITLE }} - {{ settings.SITE_TAGLINE }}"/></h1>
               </div>
               <nav class="nine columns">
                 <ul class="nav-bar right">
-                {% page_menu "pages/menus/dropdown.html" %}
+                  <li class="{% navactive request 'home' %}">
+                    <a href="{% url home %}">{% trans "Home" %}</a>
+                  </li>
                 </ul>
               </nav>
               <ul class="keywords link-list six columns right">
-                <li>{% trans "Web/Mobile Development" %}</li>
-                <li>{% trans "Ecommerce Design" %}</li>
-                <li>{% trans "Solution Experts" %}</li>
+                <li>{% trans "Simple Development" %}</li>
+                <li>{% trans "Efficent Experiences" %}</li>
+                <li>{% trans "Elegant Design" %}</li>
               </ul>
             </div>
             {% endblock header %}
           </header>
 
           <div class="row">
-            {% nevercache %}
             {% for message in messages %}
             <div class="alert alert-{{ message.tags }}" data-alert="alert">
             <a class="close" href="#" onclick="$(this).parent().fadeOut('fast'); return false;">×</a>{{ message }}
             </div>
             {% endfor %}
-            {% endnevercache %}
           </div>    
 
           {% block content %}{% endblock %}
           
           <div class="row">
             <div id="back-to-top">
-              <img src="{{ STATIC_URL }}images/back-to-top.png">
+              <img src="{{ STATIC_URL }}img/back-to-top.png">
               <p>{% trans "Back to top" %}</p>
             </div>
           </div>
@@ -86,6 +81,9 @@
             <div class="row">
               <div class="three columns">
                 <h6>{% trans "About Us" %}</h6>
+                <p>{% blocktrans %}
+                  Created in August 2012, Brainfire LLC has strived on providing simple yet amazing experiences that help companies succeed on the internet. We have lived in the web since it's creation (and a little before, but don't tell anyone).
+                  {% endblocktrans %}</p>
               </div>
               <div class="three columns">
                 <h6>{% trans "Recent Posts" %}</h6>
@@ -96,9 +94,9 @@
               <div class="three columns">
                 <h6>{% trans "Social Love" %}</h6>
                 <dl id="social-love">
-                  <dd><a href="#"><img src="{{ STATIC_URL }}images/facebook-icon.png" /><span>{% trans "Facebook" %}<span></a></dd>
-                  <dd><a href="#"><img src="{{ STATIC_URL }}images/twitter-icon.png" /><span>{% trans "Twitter" %}<span></a></dd>
-                  <dd><a href="#"><img src="{{ STATIC_URL }}images/vimeo-icon.png" /><span>{% trans "Check out our Videos" %}<span></a></dd>
+                  <dd><a href="#"><img src="{{ STATIC_URL }}img/facebook-icon.png" /><span>{% trans "Facebook" %}<span></a></dd>
+                  <dd><a href="#"><img src="{{ STATIC_URL }}img/twitter-icon.png" /><span>{% trans "Twitter" %}<span></a></dd>
+                  <dd><a href="#"><img src="{{ STATIC_URL }}img/vimeo-icon.png" /><span>{% trans "Check out our Videos" %}<span></a></dd>
                 </ul>
               </div>
             </div>
@@ -124,26 +122,26 @@
 
         {% block base_libs %}
         {% compress js %}
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.cookie.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.event.move.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.event.swipe.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.accordion.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.alerts.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.buttons.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.clearing.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.forms.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.joyride.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.magellan.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.mediaQueryToggle.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.navigation.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.orbit.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.reveal.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.tabs.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.tooltips.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.foundation.topbar.js"></script>
-      	<script src="{{ STATIC_URL }}javascripts/foundation/jquery.placeholder.js"></script>
-        <script src="{{ STATIC_URL }}javascripts/foundation/app.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.cookie.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.event.move.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.event.swipe.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.accordion.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.alerts.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.buttons.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.clearing.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.forms.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.joyride.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.magellan.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.mediaQueryToggle.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.navigation.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.orbit.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.reveal.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.tabs.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.tooltips.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.foundation.topbar.js"></script>
+      	<script src="{{ STATIC_URL }}js/foundation/jquery.placeholder.js"></script>
+        <script src="{{ STATIC_URL }}js/foundation/app.js"></script>
         {% endcompress %}
         {% endblock %}
         
@@ -153,13 +151,9 @@
         
         {% compress js %}
         {% block scripts %}
-        <script src="{{ STATIC_URL }}javascripts/main.js"></script>
+        <script src="{{ STATIC_URL }}js/main.js"></script>
         {% endblock %}
         {% endcompress %}
-        
-        {% block editable %}
-        {% editable_loader %}
-        {% endblock %}
 
         {% if settings.GOOGLE_ANALYTICS_ID %}
         <script type="text/javascript">

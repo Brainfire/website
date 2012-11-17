@@ -1,0 +1,1 @@
+web: python brainfire/manage.py runserver $PORT
