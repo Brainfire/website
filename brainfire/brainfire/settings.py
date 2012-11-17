@@ -78,12 +78,16 @@ STATICFILES_FINDERS = (
 if os.getenv('ENABLE_AWS', None) == "True":
 # Setup S3 Static Files
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
+    STATICFILES_STORAGE = 'brainfire.common.storage.CachedS3BotoStorage'
     AWS_ACCESS_KEY_ID = os.environ['AWS_KEY']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['STATIC_BUCKET_NAME']
-    STATIC_URL = os.getenv('STATIC_URL', '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME)
+    COMPRESS_URL = os.getenv('COMPRESS_URL', 'http://{}.s3.amazonaws.com/static/'.format(AWS_STORAGE_BUCKET_NAME))
+    STATIC_URL = COMPRESS_URL
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+    COMPRESS_ROOT = STATIC_ROOT
+    COMPRESS_ENABLED = os.getenv('COMPRESS_ENABLED', False)
+    COMPRESS_STORAGE = STATICFILES_STORAGE
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.getenv('SECRET_KEY', '8kjr86@v_#-=#+h*fneyf$*_ab1)jpd9#34#i7ew6+w@0er94&amp;')
@@ -188,5 +192,5 @@ GOOGLE_ANALYTICS_ID = os.getenv('GOOGLE_ANALYTICS_ID', None)
 GOOGLE_ANALYTICS_DOMAIN = os.getenv('GOOGLE_ANALYTICS_DOMAIN', None)
 
 RAVEN_CONFIG = {
-    'dsn': os.environ["RAVEN_DSN"],
+    'dsn': os.getenv("RAVEN_DSN", None),
 }
