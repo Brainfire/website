@@ -25,7 +25,11 @@
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
   {% endcompress %}
   {% endblock %}
+  
+  {% compress css %}
   {% block styles %}{% endblock %}
+  {% endcompress %}
+  
 
 	<script src="{{ STATIC_URL }}js/foundation/modernizr.foundation.js"></script>
 	<script type="text/javascript">

@@ -8,15 +8,11 @@
 {% endblock %}
 
 {% block styles %}
-  {% compress css %}
   <link rel="stylesheet" href="{{ STATIC_URL }}css/index.css">
-  {% endcompress %}
 {% endblock %}
 
 {% block scripts %}
-  {% compress js %}
   <script src="{{ STATIC_URL }}js/index.js"></script>
-  {% endcompress %}
 {% endblock %}
 
 {% block content %}
