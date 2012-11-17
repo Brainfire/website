@@ -27,7 +27,7 @@
   })(jQuery, Chirp);
 
   $(function() {
-    return Chirp.fetchTweets('madzak', 3, function(tweets) {
+    return Chirp.fetchTweets('brainfirellc', 3, function(tweets) {
       var tweet, _i, _len, _results;
       _results = [];
       for (_i = 0, _len = tweets.length; _i < _len; _i++) {

@@ -18,7 +18,7 @@ do ($=jQuery, chirp=Chirp) ->
     }
 
 $ =>
-  Chirp.fetchTweets 'madzak', 3, (tweets) =>
+  Chirp.fetchTweets 'brainfirellc', 3, (tweets) =>
     for tweet in tweets
       do (tweet) ->
         DAY = 1000 * 60 * 60  * 24
