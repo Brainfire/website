@@ -12,7 +12,7 @@ div.divider-bar {
 
 /* line 15, ../../../sass/index.scss */
 #badges {
-  overflow: auto;
+  overflow: hidden;
 }
 /* line 18, ../../../sass/index.scss */
 #badges div.badge {
