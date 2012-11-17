@@ -25,11 +25,7 @@
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
   {% endcompress %}
   {% endblock %}
-  
-  {% compress css %}
   {% block styles %}{% endblock %}
-  {% endcompress %}
-  
 
 	<script src="{{ STATIC_URL }}js/foundation/modernizr.foundation.js"></script>
 	<script type="text/javascript">
@@ -162,11 +158,11 @@
         <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
         {% endif %}
         
-        {% compress js %}
         {% block scripts %}
+        {% compress js %}
         <script src="{{ STATIC_URL }}js/main.js"></script>
-        {% endblock %}
         {% endcompress %}
+        {% endblock %}
 
         {% if GOOGLE_ANALYTICS_ID %}
         <script type="text/javascript">
