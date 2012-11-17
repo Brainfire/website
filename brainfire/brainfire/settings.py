@@ -101,6 +101,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'raven.contrib.django.middleware.Sentry404CatchMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -140,6 +141,7 @@ INSTALLED_APPS = (
     'common',
     'gunicorn',
     'storages',
+    'raven.contrib.django',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -184,3 +186,7 @@ ENABLE_ZENDESK = os.getenv('ENABLE_ZENDESK', False)
 
 GOOGLE_ANALYTICS_ID = os.getenv('GOOGLE_ANALYTICS_ID', None)
 GOOGLE_ANALYTICS_DOMAIN = os.getenv('GOOGLE_ANALYTICS_DOMAIN', None)
+
+RAVEN_CONFIG = {
+    'dsn': os.environ["RAVEN_DSN"],
+}

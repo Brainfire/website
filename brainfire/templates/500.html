@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block meta_title %}
+{% trans "Internal Server Error" %}
+{% endblock %}
+
+{% block content %}
+<h1>{% trans "Oops! We encountered an error" %}</h1>
+
+<p>{% blocktrans %}
+  Sorry, but we seem to have found an error. The proper people have been notified
+  {% endblocktrans %}</p>
+
+{% if request.sentry.id %}
+    <p>{% blocktrans %}
+      If you need assistance, you may reference this error as <strong>{{ request.sentry.id }}</strong>.
+      {% endblocktrans %}</p>
+{% endif %}
+
+{% endblock %}
