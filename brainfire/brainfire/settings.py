@@ -83,7 +83,7 @@ if os.getenv('ENABLE_AWS', "False") == "True":
     AWS_ACCESS_KEY_ID = os.environ['AWS_KEY']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['STATIC_BUCKET_NAME']
-    COMPRESS_URL = os.getenv('COMPRESS_URL', 'http://{}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME))
+    COMPRESS_URL = os.getenv('COMPRESS_URL', 'http://{}.s3.amazonaws.com/static/'.format(AWS_STORAGE_BUCKET_NAME))
     STATIC_URL = COMPRESS_URL
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
     COMPRESS_ROOT = STATIC_ROOT
