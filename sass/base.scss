@@ -1,7 +1,7 @@
 @import "foundation-overrides.scss";
 
 body {
-    background: url(../images/background.png) 0 0 repeat;
+    background: url(../img/background.png) 0 0 repeat;
 }
 
 a {
@@ -94,15 +94,18 @@ header {
 }
 
 #back-to-top {
-    margin: 0 auto;
+    margin: 0 auto 15px;
     padding-top: 40px;
     width: 100px;
     text-align: center;
     
-    p {
+    a {
         text-transform: uppercase;
         font-size: 10px;
-        font-family: $headerFontFamily
+        font-family: $headerFontFamily;
+        text-decoration: none;
+        color: $txtColor;
+        font-weight: normal;
     }
 }
 

@@ -12,4 +12,5 @@ def common_settings(context):
         'DEBUG': settings.DEBUG,
         'SITE_TITLE': settings.SITE_TITLE,
         'SITE_TAGLINE': settings.SITE_TAGLINE,
+        'ENABLE_ZENDESK': settings.ENABLE_ZENDESK,
     }

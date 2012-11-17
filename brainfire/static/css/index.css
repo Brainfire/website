@@ -1,26 +1,79 @@
-/* line 3, ../sass/index.scss */
+/* line 5, ../../../sass/index.scss */
 section {
   margin-top: 40px;
 }
 
-/* line 7, ../sass/index.scss */
+/* line 9, ../../../sass/index.scss */
 div.divider-bar {
   background: #e9eae9;
   height: 5px;
   width: 100%;
 }
 
-/* line 13, ../sass/index.scss */
+/* line 15, ../../../sass/index.scss */
+#badges {
+  overflow: auto;
+}
+/* line 18, ../../../sass/index.scss */
+#badges div.badge {
+  text-align: center;
+}
+
+/* line 23, ../../../sass/index.scss */
 #our-team {
   background-color: #3b3b3b;
   color: #fdfdfd;
 }
-/* line 17, ../sass/index.scss */
+/* line 27, ../../../sass/index.scss */
 #our-team h2 {
   color: #fdfdfd;
 }
 
-/* line 22, ../sass/index.scss */
+/* line 32, ../../../sass/index.scss */
 #the-team {
   padding: 20px 0;
+}
+
+/* line 36, ../../../sass/index.scss */
+div.portfolio-item {
+  height: 300px;
+  width: 300px;
+}
+/* line 40, ../../../sass/index.scss */
+div.portfolio-item img.ss {
+  position: relative;
+}
+/* line 44, ../../../sass/index.scss */
+div.portfolio-item div.overlay {
+  position: absolute;
+  display: none;
+  top: 13px;
+  left: 30px;
+  width: 265px;
+  height: 265px;
+  background-color: silver;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  -ms-border-radius: 150px;
+  -o-border-radius: 150px;
+  border-radius: 150px;
+}
+/* line 56, ../../../sass/index.scss */
+div.portfolio-item img.ico {
+  position: absolute;
+  top: 105px;
+  left: 120px;
+  display: none;
+  z-index: 2;
+}
+
+/* line 68, ../../../sass/index.scss */
+div.portfolio-item:hover img.ico {
+  display: block;
+}
+/* line 72, ../../../sass/index.scss */
+div.portfolio-item:hover div.overlay {
+  display: block;
 }

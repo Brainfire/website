@@ -42,7 +42,7 @@
             <div class="header-bar"></div>
             <div class="row">
               <div class="three columns">
-                <h1><img src="{{ STATIC_URL }}img/logo.png" alt="{{ settings.SITE_TITLE }} - {{ settings.SITE_TAGLINE }}"/></h1>
+                <a href="{% url home %}"><h1><img src="{{ STATIC_URL }}img/logo.png" alt="{{ settings.SITE_TITLE }} - {{ settings.SITE_TAGLINE }}"/></h1></a>
               </div>
               <nav class="nine columns">
                 <ul class="nav-bar right">
@@ -73,7 +73,7 @@
           <div class="row">
             <div id="back-to-top">
               <img src="{{ STATIC_URL }}img/back-to-top.png">
-              <p>{% trans "Back to top" %}</p>
+              <a href="">{% trans "Back to top" %}</a>
             </div>
           </div>
           <div class="divider-bar"></div>
@@ -87,16 +87,25 @@
               </div>
               <div class="three columns">
                 <h6>{% trans "Recent Posts" %}</h6>
+                <p>Blog coming soon</p>
               </div>
               <div class="three columns">
                 <h6>{% trans "Contact" %}</h6>
+                <p>
+                  <strong>Email:</strong><br />
+                  <a href="mailto:contact@brainfi.re">contact@brainfi.re</a>
+                </p>
+                <p>
+                  <strong>Questions</strong><br />
+                  <a id="questions" href="https://brainfire.zendesk.com/home">Ask Questions</a>
+                </p>
               </div>
               <div class="three columns">
                 <h6>{% trans "Social Love" %}</h6>
                 <dl id="social-love">
-                  <dd><a href="#"><img src="{{ STATIC_URL }}img/facebook-icon.png" /><span>{% trans "Facebook" %}<span></a></dd>
-                  <dd><a href="#"><img src="{{ STATIC_URL }}img/twitter-icon.png" /><span>{% trans "Twitter" %}<span></a></dd>
-                  <dd><a href="#"><img src="{{ STATIC_URL }}img/vimeo-icon.png" /><span>{% trans "Check out our Videos" %}<span></a></dd>
+                  <dd><a href="http://facebook.com/brainfirellc"><img src="{{ STATIC_URL }}img/facebook-icon.png" /><span>{% trans "Facebook" %}<span></a></dd>
+                  <dd><a href="http://twitter.com/brainfirellc"><img src="{{ STATIC_URL }}img/twitter-icon.png" /><span>{% trans "Twitter" %}<span></a></dd>
+                  <dd><a href="http://vimeo.com/brainfirellc"><img src="{{ STATIC_URL }}img/vimeo-icon.png" /><span>{% trans "Check out our Videos" %}<span></a></dd>
                 </ul>
               </div>
             </div>
@@ -109,8 +118,8 @@
                   <div class="twelve columns">
                     <p class="left">&copy;{% now "Y" %} {% trans "Brainfire LLC" %}. {% trans "All rights reserved." %}</p>
                     <ul class="left link-list">
-                      <li><a href="">{% trans "Terms and Conditions" %}</a></li>
-                      <li><a href="">{% trans "Privacy Policy" %}</a></li>
+                      <li><a href="{% url terms_and_conditions %}">{% trans "Terms and Conditions" %}</a></li>
+                      <li><a href="{% url privacy %}">{% trans "Privacy Policy" %}</a></li>
                     </ul>
                   </div>
                 </div>
@@ -155,11 +164,11 @@
         {% endblock %}
         {% endcompress %}
 
-        {% if settings.GOOGLE_ANALYTICS_ID %}
+        {% if GOOGLE_ANALYTICS_ID %}
         <script type="text/javascript">
           var _gaq = [
-            ['_setAccount', '{{ settings.GOOGLE_ANALYTICS_ID }}'],
-            ['_setDomainName', '{{ settings.GOOGLE_ANALYTICS_DOMAIN }}'],
+            ['_setAccount', '{{ GOOGLE_ANALYTICS_ID }}'],
+            ['_setDomainName', '{{ GOOGLE_ANALYTICS_DOMAIN }}'],
             ['_trackPageview']
           ];
 
@@ -168,6 +177,23 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
+        </script>
+        {% endif %}
+        
+        {% if ENABLE_ZENDESK %}
+        <script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.5/zenbox.js"></script>
+        <style type="text/css" media="screen, projection">
+          @import url(//assets.zendesk.com/external/zenbox/v2.5/zenbox.css);
+          #zenbox_tab { display: none !important; }
+        </style>
+        <script type="text/javascript">
+          if (typeof(Zenbox) !== "undefined") {
+            Zenbox.init({
+              dropboxID:   "20105281",
+              url:         "https://brainfire.zendesk.com",
+              tabID:       "Questions",
+            });
+          }
         </script>
         {% endif %}
     </body>

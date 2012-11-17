@@ -13,6 +13,12 @@
   {% endcompress %}
 {% endblock %}
 
+{% block scripts %}
+  {% compress js %}
+  <script src="{{ STATIC_URL }}js/index.js"></script>
+  {% endcompress %}
+{% endblock %}
+
 {% block content %}
 	<!-- First Band (Image) -->
   <div id="slideshow" class="row">
@@ -24,46 +30,40 @@
   <!-- Second Band (Image Left with Text) -->
   <section id="features">
     <div class="row">
-      <div id="badges" class="row">
-        <div class="eight columns centered">
-          <div class="four columns"><img src="{{ STATIC_URL }}img/power-badge.png"></div>
-          <div class="four columns"><img src="{{ STATIC_URL }}img/battery-badge.png"></div>
-          <div class="four columns"><img src="{{ STATIC_URL }}img/einput-badge.png"></div>
-        </div>
+      <div id="badges" class="twelve columns centered">
+        <div class="badge four columns"><img src="{{ STATIC_URL }}img/power-badge.png"></div>
+        <div class="badge four columns"><img src="{{ STATIC_URL }}img/battery-badge.png"></div>
+        <div class="badge four columns"><img src="{{ STATIC_URL }}img/einput-badge.png"></div>
       </div>
       <br/>
       <br/>
-      <div class="row">
-        <div class="nine columns centered">
-          <h2>{% trans "See The Brainfire Difference" %}</h2>
-        </div>
+      
+      <div class="badge nine columns centered">
+        <h2>{% trans "See The Brainfire Difference" %}</h2>
       </div>
       <br/>
       <br/>
-      <div class="row">
-        <div class="twelve columns centered">
-          <div class="four columns">
-            <h3>{% trans "Simple" %}</h3>
-            <p>{% blocktrans %}
-              Our sites are constructed with careful detail to simplicity. It's easy to over think how to present a product or complicate a workflow. We promise to provide options to help refine and funnel potential customers down the right path.
-              {% endblocktrans %}</p>
-            <a href="">{% trans "Click here to learn more" %}</a>
-          </div>
-          <div class="four columns">
-            <h3>{% trans "Efficient" %}</h3>
-            <p>{% blocktrans %}
-              Sites we build are as lean as possible. They follow the strict guidance of their markup and we remove as much fat as possible. We believe in the "vanilla web" which allows all users on all platforms experience your business properly.
-              {% endblocktrans %}</p>
-            <a href="">{% trans "Click here to learn more" %}</a>
-          </div>
-          <div class="four columns">
-            <h3>{% trans "Elegant" %}</h3>
-            <p>{% blocktrans %}
-              Keeping it simple and efficient doesn't mean we sacrifice elegance. Our designs are beautiful on their own, not just visually but logically. We 100% believe in creating a WOW experience for you and your customers.
-              {% endblocktrans %}</p>
-            <a href="">{% trans "Click here to learn more" %}</a>
-          </div>
-        </div>
+      
+      <div class="four columns">
+        <h3>{% trans "Simple" %}</h3>
+        <p>{% blocktrans %}
+          Our sites are constructed with careful detail to simplicity. It's easy to over think how to present a product or complicate a workflow. We promise to provide options to help refine and funnel potential customers down the right path.
+          {% endblocktrans %}</p>
+        <a href="">{% trans "Click here to learn more" %}</a>
+      </div>
+      <div class="four columns">
+        <h3>{% trans "Efficient" %}</h3>
+        <p>{% blocktrans %}
+          Sites we build are as lean as possible. They follow the strict guidance of their markup and we remove as much fat as possible. We believe in the "vanilla web" which allows all users on all platforms experience your business properly.
+          {% endblocktrans %}</p>
+        <a href="">{% trans "Click here to learn more" %}</a>
+      </div>
+      <div class="four columns">
+        <h3>{% trans "Elegant" %}</h3>
+        <p>{% blocktrans %}
+          Keeping it simple and efficient doesn't mean we sacrifice elegance. Our designs are beautiful on their own, not just visually but logically. We 100% believe in creating a WOW experience for you and your customers.
+          {% endblocktrans %}</p>
+        <a href="">{% trans "Click here to learn more" %}</a>
       </div>
     </div>
   </section>
@@ -72,20 +72,18 @@
   <section id="our-team">
     <div class="divider-bar row"></div>
     <div id="the-team" class="row">
-      <div class="twelve columns">
+      <div class="six columns">
+        <h2>{% trans "The Team" %}</h2>
+        <p>{% blocktrans %}
+          Our experience combined gives over 10 years of simple, efficient, and elegant know how to help busy people and small companies shine. From database creation to site presentation, both Zak and Judy have spent their career working in all areas of building online experiences for many different industries.
+          {% endblocktrans %}</p>
+      </div>
+      <div class="six columns">
         <div class="six columns">
-          <h2>{% trans "The Team" %}</h2>
-          <p>{% blocktrans %}
-            Our experience combined gives over 10 years of simple, efficient, and elegant know how to help busy people and small companies shine. From database creation to site presentation, both Zak and Judy have spent their career working in all areas of building online experiences for many different industries.
-            {% endblocktrans %}</p>
+          <img src="{{ STATIC_URL }}img/zak-team-badge.png" />
         </div>
         <div class="six columns">
-          <div class="six columns">
-            <img src="{{ STATIC_URL }}img/zak-team-badge.png" />
-          </div>
-          <div class="six columns">
-            <img src="{{ STATIC_URL }}img/judy-team-badge.png" />
-          </div>
+          <img src="{{ STATIC_URL }}img/judy-team-badge.png" />
         </div>
       </div>
     </div>
@@ -94,19 +92,29 @@
   
   <section id="recent-projects">
     <div class="row">
-      <div class="twelve columns">
+      <div class="twelve columns centered">
         <h4>{% trans "The Results" %}</h4>
         <div class="heading-divider"></div>
         <p>{% blocktrans %}
           Our recent projects listed below are great showcase of common projects Brainfire helps out with. It's within these examples you will see how our dedication to our craftsmanship and our core abilities centered around simple, efficient, and elegant solutions help to create solutions that empower you and your users shines. These projects are only a few of the many people that we have helped revolutionize their digital experiences.
           {% endblocktrans %}</p>
       </div>
-    </div>
-    <div class="row">
       <div class="twelve columns centered">
-        <div class="four columns"><img src="{{ STATIC_URL }}img/portofolio-badge.png"></div>
-        <div class="four columns"><img src="{{ STATIC_URL }}img/portofolio-badge.png"></div>
-        <div class="four columns"><img src="{{ STATIC_URL }}img/portofolio-badge.png"></div>
+        <div class="portfolio-item four columns">
+          <img src="{{ STATIC_URL }}img/portfolio-badge-rollover.png" class="ico" />
+          <img src="{{ STATIC_URL }}img/grindhook-portofolio-badge.png" class="ss" />
+          <div class="overlay"></div>
+        </div>
+        <div class="portfolio-item four columns">
+          <img src="{{ STATIC_URL }}img/portfolio-badge-rollover.png" class="ico"/>
+          <img src="{{ STATIC_URL }}img/driftly-portofolio-badge.png" class="ss" />
+          <div class="overlay"></div>
+        </div>
+        <div class="portfolio-item four columns">
+          <img src="{{ STATIC_URL }}img/portfolio-badge-rollover.png" class="ico" />
+          <img src="{{ STATIC_URL }}img/cps-portofolio-badge.png" class="ss" />
+          <div class="overlay"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -114,18 +122,23 @@
   <section id="more-info">
     <hr />
     <div class="row">
-      <div class="twelve columns centered">
-        <div class="four columns">
-          <h5>{% trans "From The Blog" %}</h5>
-        </div>
-        <div class="four columns">
-          <h5>{% trans "Great Sites" %}</h5>
-          
-        </div>
-        <div class="four columns">
-          <h5>{% trans "Tweets" %}</h5>
-        
-        </div>
+      <div class="four columns">
+        <h5>{% trans "From The Blog" %}</h5>
+        <p>Coming Soon</p>
+      </div>
+      <div class="four columns">
+        <h5>{% trans "Great Sites" %}</h5>
+        <ul class="square">
+          <li><a href="http://freelanceswitch.com">Freelance Switch</a></li>
+          <li><a href="http://smashingmagazine.com">Smashing Magazine</a></li>
+          <li><a href="http://github.com">Github</a></li>
+          <li><a href="http://heroku.com">Heroku</a></li>
+          <li><a href="http://basecamp.com">Basecamp</a></li>
+        </ul>
+      </div>
+      <div class="four columns">
+        <h5>{% trans "Tweets" %}</h5>
+        <dl id="tweet-list"></dl>
       </div>
     </div>
   </section>

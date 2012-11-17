@@ -1,4 +1,5 @@
-django=1.4.2
-psycopg2==2.4.5
-dj-database-url==0.2.0
-gunicorn==0.14.6
+django
+psycopg2
+dj-database-url
+gunicorn
+django_compressor

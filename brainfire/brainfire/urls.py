@@ -23,6 +23,8 @@ urlpatterns += patterns('django.views.generic.simple', *urls)
 
 urlpatterns += patterns('django.views.generic.simple',
     url(r'^$', 'direct_to_template', {'template': 'index.html'}, name='home'),
+    url(r'^terms_and_conditions/$', 'direct_to_template', {'template': 'terms_and_conditions.html'}, name='terms_and_conditions'),
+    url(r'^privacy/$', 'direct_to_template', {'template': 'privacy.html'}, name='privacy'),
 )
 
 if not settings.DEBUG:

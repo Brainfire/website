@@ -1,4 +1,6 @@
 @import "foundation-overrides.scss";
+@import "compass/css3";
+@import "compass/utilities";
 
 section {
     margin-top: 40px;
@@ -8,6 +10,14 @@ div.divider-bar {
     background: #e9eae9;
     height: 5px;
     width: 100%;
+}
+
+#badges {
+    overflow: auto;
+    
+    div.badge {
+        text-align: center;
+    }
 }
 
 #our-team {
@@ -21,4 +31,45 @@ div.divider-bar {
 
 #the-team {
     padding: 20px 0;
+}
+
+div.portfolio-item {
+    height: 300px;
+    width: 300px;
+    
+    img.ss {
+        position: relative;
+    }
+    
+    div.overlay {
+        position: absolute;
+        display: none;
+        top: 13px;
+        left: 30px;
+        width: 265px;
+        height: 265px;
+        background-color: silver;
+        @include opacity(0.5);
+        @include border-radius(150px);
+    }
+    
+    img.ico {
+        position: absolute;
+        top: 105px;
+        left: 120px;
+        display: none;
+        z-index: 2;
+    }
+}
+
+div.portfolio-item:hover {
+    
+    
+    img.ico {
+        display: block;
+    }
+    
+    div.overlay {
+        display: block;
+    }
 }

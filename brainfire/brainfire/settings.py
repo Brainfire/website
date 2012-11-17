@@ -175,3 +175,5 @@ ASSETS = (
 
 SITE_TITLE = 'Brainfire'
 SITE_TAGLINE = 'Iginiting Technology'
+
+ENABLE_ZENDESK = os.getenv('ENABLE_ZENDESK', False)

@@ -1,28 +1,8 @@
-# Assignment:
-number   = 43
-opposite = true
+# Scroll to top
+$('#back-to-top').bind "click", (event) =>
+  do event.preventDefault
+  $('html, body').animate { 'scrollTop': 0 }
 
-# Conditions:
-number = -42 if opposite
-
-# Functions:
-square = (x) -> x * x
-
-# Arrays:
-list = [1, 2, 3, 4, 5]
-
-# Objects:
-math =
-  root:   Math.sqrt
-  square: square
-  cube:   (x) -> x * square x
-
-# Splats:
-race = (winner, runners...) ->
-  print winner, runners
-
-# Existence:
-alert "I knew it!" if elvis?
-
-# Array comprehensions:
-cubes = (math.cube num for num in list)
+$('#questions').bind "click", (event) =>
+  do event.preventDefault
+  do window.Zenbox.show();
