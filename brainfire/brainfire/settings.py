@@ -89,6 +89,7 @@ if os.getenv('ENABLE_AWS', "False") == "True":
     COMPRESS_ROOT = STATIC_ROOT
     COMPRESS_ENABLED = os.getenv('COMPRESS_ENABLED', False)
     COMPRESS_STORAGE = STATICFILES_STORAGE
+    COMPRESS_OFFLINE = True
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.getenv('SECRET_KEY', '8kjr86@v_#-=#+h*fneyf$*_ab1)jpd9#34#i7ew6+w@0er94&amp;')
