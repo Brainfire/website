@@ -93,6 +93,16 @@ header {
     }
 }
 
+section.page-title {
+    background-color: #3b3b3b;
+    h2 {
+        text-transform: uppercase;
+    }
+    h3 {
+        color: #FDFDFD;
+    }
+}
+
 #back-to-top {
     margin: 0 auto 15px;
     padding-top: 40px;

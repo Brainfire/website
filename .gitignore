@@ -44,3 +44,6 @@ local_settings.py
 .DS_STORE
 
 .env
+*.scssc
+
+compass_app_log.txt

@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^$', cache_page(60 * 15)(direct_to_template), {'template': 'index.html'}, name='home'),
     url(r'^terms_and_conditions/$', cache_page(60 * 15)(direct_to_template), {'template': 'terms_and_conditions.html'}, name='terms_and_conditions'),
     url(r'^privacy/$', cache_page(60 * 15)(direct_to_template), {'template': 'privacy.html'}, name='privacy'),
+    url(r'^about/$', direct_to_template, {'template': 'about.html'}, name='about'),
     
     url(r'^admin/', include(admin.site.urls)),
 )

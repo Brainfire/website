@@ -46,9 +46,8 @@
               </div>
               <nav class="nine columns">
                 <ul class="nav-bar right">
-                  <li class="{% navactive request 'home' %}">
-                    <a href="{% url home %}">{% trans "Home" %}</a>
-                  </li>
+                  <li class="{% navactive request 'home' %}"><a href="{% url home %}">{% trans "Home" %}</a></li>
+                  <li class="{% navactive request 'about' %}"><a href="{% url about %}">{% trans "About" %}</a></li>
                 </ul>
               </nav>
               <ul class="keywords link-list six columns right">

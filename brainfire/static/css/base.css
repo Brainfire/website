@@ -93,13 +93,26 @@ header ul.keywords li {
 }
 
 /* line 96, ../../../sass/base.scss */
+section.page-title {
+  background-color: #3b3b3b;
+}
+/* line 98, ../../../sass/base.scss */
+section.page-title h2 {
+  text-transform: uppercase;
+}
+/* line 101, ../../../sass/base.scss */
+section.page-title h3 {
+  color: #FDFDFD;
+}
+
+/* line 106, ../../../sass/base.scss */
 #back-to-top {
   margin: 0 auto 15px;
   padding-top: 40px;
   width: 100px;
   text-align: center;
 }
-/* line 102, ../../../sass/base.scss */
+/* line 112, ../../../sass/base.scss */
 #back-to-top a {
   text-transform: uppercase;
   font-size: 10px;
@@ -109,63 +122,63 @@ header ul.keywords li {
   font-weight: normal;
 }
 
-/* line 112, ../../../sass/base.scss */
+/* line 122, ../../../sass/base.scss */
 #footer-bar {
   background: #e9eae9;
   height: 5px;
   width: 100%;
 }
 
-/* line 118, ../../../sass/base.scss */
+/* line 128, ../../../sass/base.scss */
 #quick-links {
   background-color: #3b3b3b;
   color: #fdfdfd;
   padding: 15px 0 20px;
   height: 255px;
 }
-/* line 124, ../../../sass/base.scss */
+/* line 134, ../../../sass/base.scss */
 #quick-links h6 {
   color: #fdfdfd;
 }
-/* line 128, ../../../sass/base.scss */
+/* line 138, ../../../sass/base.scss */
 #quick-links a {
   color: #fdfdfd;
   text-decoration: none;
 }
 
-/* line 135, ../../../sass/base.scss */
+/* line 145, ../../../sass/base.scss */
 #social-love dd {
   overflow: hidden;
 }
-/* line 139, ../../../sass/base.scss */
+/* line 149, ../../../sass/base.scss */
 #social-love a > img {
   float: left;
 }
-/* line 143, ../../../sass/base.scss */
+/* line 153, ../../../sass/base.scss */
 #social-love a > span {
   margin-left: 5px;
   line-height: 48px;
 }
 
-/* line 149, ../../../sass/base.scss */
+/* line 159, ../../../sass/base.scss */
 footer {
   background-color: #232323;
   height: 55px;
   padding: 15px 0;
 }
-/* line 154, ../../../sass/base.scss */
+/* line 164, ../../../sass/base.scss */
 footer a {
   color: #535353;
   font-size: 12px;
   font-weight: bold;
 }
-/* line 160, ../../../sass/base.scss */
+/* line 170, ../../../sass/base.scss */
 footer a:hover {
   color: #535353;
   font-size: 12px;
   text-decoration: underline;
 }
-/* line 166, ../../../sass/base.scss */
+/* line 176, ../../../sass/base.scss */
 footer p {
   color: #535353;
   font-weight: bold;

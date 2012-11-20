@@ -3325,7 +3325,7 @@ div.orbit-wrapper span.rotator {
   position: absolute;
   top: 0;
   left: -20px;
-  background: url('/brainfire/static/img/foundation/orbit/rotator-black.png?1353129287') no-repeat;
+  background: url('/brainfire/static/img/foundation/orbit/rotator-black.png?1353116033') no-repeat;
   z-index: 3;
 }
 
@@ -3350,7 +3350,7 @@ div.orbit-wrapper span.rotator.move {
 div.orbit-wrapper span.mask.move {
   width: 40px;
   left: 0;
-  background: url('/brainfire/static/img/foundation/orbit/timer-black.png?1353129287') repeat 0 0;
+  background: url('/brainfire/static/img/foundation/orbit/timer-black.png?1353116033') repeat 0 0;
 }
 
 /* line 82, ../../../../../../../../Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-3.1.1/scss/foundation/components/modules/_orbit.scss */
@@ -3361,14 +3361,14 @@ div.orbit-wrapper span.pause {
   position: absolute;
   top: 0;
   left: 0;
-  background: url('/brainfire/static/img/foundation/orbit/pause-black.png?1353129287') no-repeat;
+  background: url('/brainfire/static/img/foundation/orbit/pause-black.png?1353116033') no-repeat;
   z-index: 4;
   opacity: 0;
 }
 
 /* line 93, ../../../../../../../../Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-3.1.1/scss/foundation/components/modules/_orbit.scss */
 div.orbit-wrapper span.pause.active {
-  background: url('/brainfire/static/img/foundation/orbit/pause-black.png?1353129287') no-repeat 0 -40px;
+  background: url('/brainfire/static/img/foundation/orbit/pause-black.png?1353116033') no-repeat 0 -40px;
 }
 
 /* line 97, ../../../../../../../../Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-3.1.1/scss/foundation/components/modules/_orbit.scss */
@@ -3420,25 +3420,25 @@ div.orbit-wrapper div.slider-nav span {
 
 /* line 134, ../../../../../../../../Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-3.1.1/scss/foundation/components/modules/_orbit.scss */
 div.orbit-wrapper div.slider-nav span.right {
-  background: url('/brainfire/static/img/foundation/orbit/right-arrow.png?1353129287');
+  background: url('/brainfire/static/img/foundation/orbit/right-arrow.png?1353116033');
   background-size: 100%;
   right: 0;
 }
 
 /* line 139, ../../../../../../../../Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-3.1.1/scss/foundation/components/modules/_orbit.scss */
 div.orbit-wrapper div.slider-nav span.left {
-  background: url('/brainfire/static/img/foundation/orbit/left-arrow.png?1353129287');
+  background: url('/brainfire/static/img/foundation/orbit/left-arrow.png?1353116033');
   background-size: 100%;
   left: 0;
 }
 
 /* line 145, ../../../../../../../../Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-3.1.1/scss/foundation/components/modules/_orbit.scss */
 .lt-ie9 div.orbit-wrapper div.slider-nav span.right {
-  background: url('/brainfire/static/img/foundation/orbit/right-arrow-small.png?1353129287');
+  background: url('/brainfire/static/img/foundation/orbit/right-arrow-small.png?1353116033');
 }
 /* line 146, ../../../../../../../../Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-3.1.1/scss/foundation/components/modules/_orbit.scss */
 .lt-ie9 div.orbit-wrapper div.slider-nav span.left {
-  background: url('/brainfire/static/img/foundation/orbit/left-arrow-small.png?1353129287');
+  background: url('/brainfire/static/img/foundation/orbit/left-arrow-small.png?1353116033');
 }
 
 /* Bullet Nav ---------------------- */
@@ -3460,7 +3460,7 @@ ul.orbit-bullets li {
   cursor: pointer;
   color: #999;
   text-indent: -9999px;
-  background: url('/brainfire/static/img/foundation/orbit/bullets.jpg?1353129287') no-repeat 4px 0;
+  background: url('/brainfire/static/img/foundation/orbit/bullets.jpg?1353116033') no-repeat 4px 0;
   width: 13px;
   height: 12px;
   overflow: hidden;
@@ -3517,7 +3517,7 @@ ul.orbit-bullets li {
   cursor: pointer;
   color: #999;
   text-indent: -9999px;
-  background: url('/brainfire/static/img/foundation/orbit/bullets.jpg?1353129287') no-repeat 4px 0;
+  background: url('/brainfire/static/img/foundation/orbit/bullets.jpg?1353116033') no-repeat 4px 0;
   width: 13px;
   height: 12px;
   overflow: hidden;
