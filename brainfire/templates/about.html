@@ -16,14 +16,14 @@
     <div class="row">
       <div class="twelve columns">
         <h2 class="subheader"><small>{% trans "about" %}</small></h2>
-        <h3>Who We Are</h3>
+        <h3>{% trans "Who We Are" %}</h3>
       </div>
     </div>
   </section>
   
   <section class="row">
     <div class="ten columns centered">
-      <h4>blah blah blah</h4>
+      <h3>{% trans "blah blah blah" %}</h3>
       <p>{% blocktrans %}
         A lot of folks find it hard to make their place on the internet, either due to busy schedules or lack of knowledge. This is exactly where we fit in. Our team has spent their careers on everything from a simple one page product displays to full blown order management systems.
         {% endblocktrans %}</p>
@@ -35,10 +35,26 @@
   
   <section class="row">
     <div class="twelve columns">
-      <h5>{% trans "The Team" %}</h5>
+      <h4>{% trans "The Team" %}</h4>
       <ul>
-        <li>Zak</li>
-        <li>Judy</li>
+        <li class="team-member">
+          <img src="{{ STATIC_URL }}img/large-badge.png" class="background" />
+          <img src="{{ STATIC_URL }}img/zak-team-badge.png" class="member" />
+          <h5>Zakaria Zajac</h5>
+          <h6>{% trans "Owner" %}</h6>
+          <p>{% blocktrans %}
+            blah blah blah
+            {% endblocktrans %}</p>
+        </li>
+        <li class="team-member">
+          <img src="{{ STATIC_URL }}img/large-badge.png" class="background" />
+          <img src="{{ STATIC_URL }}img/judy-team-badge.png" class="member" />
+          <h5>Zakaria Zajac</h5>
+          <h6>{% trans "Owner" %}</h6>
+          <p>{% blocktrans %}
+            blah blah blah
+            {% endblocktrans %}</p>
+        </li>
       </ul>
     </div>
   </section>

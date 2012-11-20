@@ -1,0 +1,10 @@
+/* line 1, ../../../sass/about.scss */
+li.team-member {
+  position: relative;
+}
+/* line 8, ../../../sass/about.scss */
+li.team-member img.member {
+  position: absolute;
+  top: 45px;
+  left: 230px;
+}
