@@ -83,6 +83,7 @@ if os.getenv('ENABLE_AWS', "False") == "True":
     AWS_ACCESS_KEY_ID = os.environ['AWS_KEY']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['STATIC_BUCKET_NAME']
+    AWS_QUERYSTRING_AUTH = False
     COMPRESS_URL = os.getenv('COMPRESS_URL', 'http://{}.s3.amazonaws.com/static/'.format(AWS_STORAGE_BUCKET_NAME))
     STATIC_URL = COMPRESS_URL
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
@@ -90,6 +91,9 @@ if os.getenv('ENABLE_AWS', "False") == "True":
     COMPRESS_ENABLED = os.getenv('COMPRESS_ENABLED', False)
     COMPRESS_STORAGE = STATICFILES_STORAGE
     COMPRESS_OFFLINE = True
+    AWS_HEADERS = {
+        'Cache-Control': 'public, max-age=31536000', #(1 year)
+    }
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.getenv('SECRET_KEY', '8kjr86@v_#-=#+h*fneyf$*_ab1)jpd9#34#i7ew6+w@0er94&amp;')
