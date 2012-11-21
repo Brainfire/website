@@ -1,0 +1,11 @@
+@import "foundation-overrides.scss";
+
+h4 {
+    color: $black;
+}
+
+dl.address {
+    dd {
+        padding: 10px 0;
+    }
+}

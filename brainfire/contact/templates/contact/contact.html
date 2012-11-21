@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load compress i18n %}
+
+{% block meta_title %}
+{% trans "Contact" %}
+{% endblock %}
+
+{% block styles %}
+  {% compress css %}
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/contact.css">
+  {% endcompress %}
+{% endblock %}
+
+{% block content %}
+  <section class="page-title">
+    <div class="divider-bar row"></div>
+    <div class="row banner">
+      <div class="twelve columns">
+        <h2 class="subheader"><small>{% trans "contact" %}</small></h2>
+        <h3>{% trans "Get In Touch With Us" %}</h3>
+      </div>
+    </div>
+    <div class="divider-bar row"></div>
+  </section>
+  
+  <br />
+  <div class="row">
+    <div class="seven columns">
+      <h3><small>{% trans "Send Us A Message" %}</small></h3>
+      <form method="POST">
+        <div class="twelve {% if form.name.errors %}error{% endif %}">
+          {{ form.name }}
+          {% if form.name.errors %}
+            <small class="eight">{{ form.name.errors.as_text }}</small>
+          {% endif %}
+        </div>
+        
+        <div class="twelve {% if form.email.errors %}error{% endif %}">
+          {{ form.email }}
+          {% if form.email.errors %}
+            <small class="eight">{{ form.email.errors.as_text }}</small>
+          {% endif %}
+        </div>
+        
+        <div class="twelve {% if form.website.errors %}error{% endif %}">
+          {{ form.website }}
+          {% if form.website.errors %}
+            <small class="eight">{{ form.website.errors.as_text }}</small>
+          {% endif %}
+        </div>
+        
+        <div class="ten">
+          <div class="row {% if form.budget.errors %}error{% endif %}">
+            <div class="two mobile-one columns">
+              <label for="budget" class="inline">{% trans "Budget" %}</label>
+            </div>
+            <div class="ten mobile-three columns">
+              {{ form.budget }}
+              {% if form.budget.errors %}
+                <small class="four">{{ form.budget.errors.as_text }}</small>
+              {% endif %}
+            </div>
+          </div>
+          <div class="row {% if form.timeframe.errors %}error{% endif %}">
+            <div class="two mobile-one columns">
+              <label for="timeframe" class="inline">{% trans "Timeframe" %}</label>
+            </div>
+            <div class="ten mobile-three columns">
+              {{ form.timeframe }}
+              {% if form.timeframe.errors %}
+                <small class="four">{{ form.timeframe.errors.as_text }}</small>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        
+        <div class="twelve {% if form.message.errors %}error{% endif %}">
+          {{ form.message }}
+          {% if form.message.errors %}
+            <small class="ten">{{ form.message.errors.as_text }}</small>
+          {% endif %}
+        </div>
+        {% csrf_token %}
+        <input type="submit" class="button small radius" />
+      </form>
+    </div>
+    <div class="five columns">
+      <h3><small>{% trans "Address" %}</small></h3>
+      <img src="{{ STATIC_URL }}img/address-map.png" />
+      <br />
+      <h4><small>Brainfire LLC</small></h4>
+      <dl class="address">
+        <dd>220 2nd Ave South</dd>
+        <dd>Seattle, WA 98104</dd>
+        <dd>{% trans "Phone:" %} (425) 247 0942</dd>
+        <dd>{% trans "Email:" %} <a href="mailto: contact@brainfi.re">contact@brainfi.re</a></dd>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

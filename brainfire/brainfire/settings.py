@@ -111,7 +111,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'raven.contrib.django.middleware.Sentry404CatchMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -147,8 +146,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.messages',
     'compressor',
     'common',
+    'contact',
     'gunicorn',
     'storages',
     'raven.contrib.django',
@@ -197,6 +198,22 @@ ENABLE_ZENDESK = os.getenv('ENABLE_ZENDESK', False)
 GOOGLE_ANALYTICS_ID = os.getenv('GOOGLE_ANALYTICS_ID', None)
 GOOGLE_ANALYTICS_DOMAIN = os.getenv('GOOGLE_ANALYTICS_DOMAIN', None)
 
-RAVEN_CONFIG = {
-    'dsn': os.getenv("RAVEN_DSN", None),
-}
+raven = os.getenv("RAVEN_DSN", None)
+
+EMAIL_BACKEND = os.getenv("EMAIL_BACKEND", 'django.core.mail.backends.console.EmailBackend')
+enable_sendgrid = os.getenv("ENABLE_SENDGRID", False)
+if enable_sendgrid:
+    EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
+    EMAIL_HOST= 'smtp.sendgrid.net'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
+
+if raven:
+    RAVEN_CONFIG = {
+        'dsn': raven,
+    }
+
+    MIDDLEWARE_CLASSES += (
+        'raven.contrib.django.middleware.Sentry404CatchMiddleware',
+    )
