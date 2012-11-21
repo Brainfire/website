@@ -101,6 +101,10 @@ section.page-title {
     h3 {
         color: #FDFDFD;
     }
+    
+    div.banner {
+        padding-bottom: 15px;
+    }
 }
 
 #back-to-top {
@@ -179,4 +183,10 @@ footer {
         font-size: 12px;
         margin-right: 20px;
     }
+}
+
+div.divider-bar {
+    background: #e9eae9;
+    height: 5px;
+    width: 100%;
 }

@@ -1,10 +1,45 @@
-/* line 1, ../../../sass/about.scss */
-li.team-member {
+/* line 3, ../../../sass/about.scss */
+dd.team-member {
   position: relative;
+  width: 480px;
 }
-/* line 8, ../../../sass/about.scss */
-li.team-member img.member {
+/* line 11, ../../../sass/about.scss */
+dd.team-member a.member {
   position: absolute;
   top: 45px;
   left: 230px;
+}
+/* line 17, ../../../sass/about.scss */
+dd.team-member div.about-member {
+  position: absolute;
+  top: 64px;
+  left: 68px;
+  width: 166px;
+  height: 170px;
+}
+/* line 24, ../../../sass/about.scss */
+dd.team-member div.about-member h5 {
+  color: #fdfdfd;
+}
+/* line 28, ../../../sass/about.scss */
+dd.team-member div.about-member h6 {
+  font-weight: bold;
+}
+/* line 32, ../../../sass/about.scss */
+dd.team-member div.about-member h6.primary {
+  color: #9f1f27;
+}
+/* line 36, ../../../sass/about.scss */
+dd.team-member div.about-member h6.secondary {
+  color: #e8661a;
+}
+/* line 40, ../../../sass/about.scss */
+dd.team-member div.about-member p {
+  color: #fdfdfd;
+}
+/* line 45, ../../../sass/about.scss */
+dd.team-member div.about-links {
+  position: absolute;
+  top: 244px;
+  left: 116px;
 }

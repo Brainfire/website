@@ -13,22 +13,25 @@
 
 {% block content %}
   <section class="page-title">
-    <div class="row">
+    <div class="divider-bar row"></div>
+    <div class="row banner">
       <div class="twelve columns">
         <h2 class="subheader"><small>{% trans "about" %}</small></h2>
         <h3>{% trans "Who We Are" %}</h3>
       </div>
     </div>
+    <div class="divider-bar row"></div>
   </section>
   
+  <br />
   <section class="row">
-    <div class="ten columns centered">
-      <h3>{% trans "blah blah blah" %}</h3>
+    <div class="twelve columns">
+      <h3><small>{% trans "We only work with folks and businesses we believe in. That means we provide a truly WOW experience all the time because we care about your success." %}</small></h3>
       <p>{% blocktrans %}
         A lot of folks find it hard to make their place on the internet, either due to busy schedules or lack of knowledge. This is exactly where we fit in. Our team has spent their careers on everything from a simple one page product displays to full blown order management systems.
         {% endblocktrans %}</p>
       <p>{% blocktrans %}
-        We provide you not only the end product you ask for, but the knowledge and guidance needed to continue to make sure what you need continues to be beautiful, easy to maintain, and simple for your users.
+        We provide you not only the end product you ask for, but the knowledge and guidance needed to continue your creation to be beautiful, easy to maintain, and simple for your users. It very simple, we believe in what you are doing and we want to make sure as your partner, we give you the best experience.
         {% endblocktrans %}</p>
     </div>
   </section>
@@ -36,26 +39,43 @@
   <section class="row">
     <div class="twelve columns">
       <h4>{% trans "The Team" %}</h4>
-      <ul>
-        <li class="team-member">
+      <dl class="sub-nav">
+        <dd class="team-member">
           <img src="{{ STATIC_URL }}img/large-badge.png" class="background" />
-          <img src="{{ STATIC_URL }}img/zak-team-badge.png" class="member" />
-          <h5>Zakaria Zajac</h5>
-          <h6>{% trans "Owner" %}</h6>
-          <p>{% blocktrans %}
-            blah blah blah
-            {% endblocktrans %}</p>
-        </li>
-        <li class="team-member">
+          <a href="http://www.linkedin.com/in/zakariazajac" class="member"><img src="{{ STATIC_URL }}img/zak-team-badge.png" /></a>
+          <div class="about-member">
+            <h5>Zakaria Zajac</h5>
+            <h6 class="primary">{% trans "Owner" %}</h6>
+            <p>{% blocktrans %}
+              Zak has over 6 years providing top notch internet experiences. He really loves this stuff.
+              {% endblocktrans %}</p>
+          </div>
+          <div class="about-links">
+            <dl class="sub-nav">
+              <dd><a href="http://www.facebook.com/zakariazajac"><img src="{{ STATIC_URL }}img/about-facebook-icon.png" /></a></dd>
+              <dd><a href="http://www.twitter.com/madzak"><img src="{{ STATIC_URL }}img/about-twitter-icon.png" /></a></dd>
+              <dd><a href="http://dribbble.com/madzak"><img src="{{ STATIC_URL }}img/about-dribble-icon.png" /></a></dd>
+            </dl>
+          </div>
+        </dd>
+        <dd class="team-member">
           <img src="{{ STATIC_URL }}img/large-badge.png" class="background" />
-          <img src="{{ STATIC_URL }}img/judy-team-badge.png" class="member" />
-          <h5>Zakaria Zajac</h5>
-          <h6>{% trans "Owner" %}</h6>
-          <p>{% blocktrans %}
-            blah blah blah
-            {% endblocktrans %}</p>
-        </li>
-      </ul>
+          <a href="http://www.linkedin.com/in/judithzajac" class="member"><img src="{{ STATIC_URL }}img/judy-team-badge.png" /></a>
+          <div class="about-member">
+            <h5>Judith Zajac</h5>
+            <h6 class="secondary">{% trans "Owner" %}</h6>
+            <p>{% blocktrans %}
+              Judy has spent over 6 years finding diamonds in the data ruff. She enjoys the hunt for metrics.
+              {% endblocktrans %}</p>
+          </div>
+          <div class="about-links">
+            <dl class="sub-nav">
+              <dd><a href="http://www.facebook.com/judyzajac"><img src="{{ STATIC_URL }}img/about-facebook-icon.png" /></a></dd>
+              <dd><a href="http://www.twitter.com/judyz"><img src="{{ STATIC_URL }}img/about-twitter-icon.png" /></a></dd>
+              <dd><a href="http://dribbble.com/judyz"><img src="{{ STATIC_URL }}img/about-dribble-icon.png" /></a></dd>
+            </dl>
+          </div>
+      </dl>
     </div>
   </section>
   

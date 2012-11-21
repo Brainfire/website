@@ -1,13 +1,50 @@
-li.team-member {
+@import "foundation-overrides.scss";
+
+dd.team-member {
     position: relative;
+    width: 480px;
     
     img.background {
         
     }
     
-    img.member {
+    a.member {
         position: absolute;
         top: 45px;
         left: 230px;
+    }
+    
+    div.about-member {
+        position: absolute;
+        top: 64px;
+        left: 68px;
+        width: 166px;
+        height: 170px;
+        
+        h5 {
+            color: $white;
+        }
+        
+        h6 {
+            font-weight: bold;
+        }
+        
+        h6.primary {
+            color: $mainColor;
+        }
+        
+        h6.secondary {
+            color: $secondaryColor;
+        }
+        
+        p {
+            color: $white;
+        }
+    }
+    
+    div.about-links {
+        position: absolute;
+        top: 244px;
+        left: 116px;
     }
 }
